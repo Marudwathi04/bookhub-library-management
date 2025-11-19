@@ -6,7 +6,7 @@ WORKDIR /app
 COPY backend/pom.xml backend/pom.xml
 COPY backend/src backend/src
 
-# build the Spring Boot JAR
+# build the Spring Boot JAR 
 WORKDIR /app/backend
 RUN mvn clean package -DskipTests
 
