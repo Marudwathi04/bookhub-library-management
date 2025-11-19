@@ -1,27 +1,22 @@
-# ---------- Build stage (Maven + Java 17) ----------
+# ---------- Build stage ----------
 FROM maven:3.9.6-eclipse-temurin-17 AS build
-
-# repo root as workdir
 WORKDIR /app
 
-# copy backend pom and source
+# copy backend project
 COPY backend/pom.xml backend/pom.xml
 COPY backend/src backend/src
 
-# build Spring Boot jar
+# build the Spring Boot JAR
 WORKDIR /app/backend
 RUN mvn clean package -DskipTests
 
-# ---------- Run stage (lightweight JRE) ----------
+# ---------- Run stage ----------
 FROM eclipse-temurin:17-jre
-
 WORKDIR /app
 
-# copy jar from build stage
 COPY --from=build /app/backend/target/*.jar app.jar
 
-# Render will set PORT env; Spring Boot uses server.port=${PORT:8081}
-ENV PORT=8081
-EXPOSE 8081
+ENV PORT=8080
+EXPOSE 8080
 
 ENTRYPOINT ["java", "-jar", "/app/app.jar"]
