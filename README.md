@@ -7,7 +7,7 @@ Full-stack library management with Spring Boot & React
 - Role-based access (Admin/User)
 - Book CRUD operations
 - Borrow/Return system
-- Modern responsive UI
+- Modern responsive UI 
 
 ## Quick Start
 \bash
