@@ -9,7 +9,7 @@ Full-stack library management with Spring Boot & React
 - Borrow/Return system
 - Modern responsive UI 
 
-## Quick Start
+## Quick Start.   
 \bash
 # Backend
 cd backend && mvn spring-boot:run
