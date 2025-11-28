@@ -5,7 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 // ✅ Protected Route Component with Role-Based Access Control
 const ProtectedRoute = ({ children, requiredRole }) => {
   const { user, token } = useContext(AuthContext);
-
+    
   // Check if user is authenticated
   if (!token || !user || !user.email) {
     console.log("❌ Not authenticated, redirecting to login");
